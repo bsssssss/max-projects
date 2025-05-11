@@ -246,7 +246,7 @@ class Hankin {
   show() {
     // post("showing hankin\n")
     //
-    m.set_source_rgba(1, 0, 0, 1);
+    m.set_source_rgba(1, 1, 1, 1);
     m.move_to(this.a.x, this.a.y);
     m.line_to(this.b.x, this.b.y);
     m.stroke();
@@ -379,7 +379,7 @@ m.relative_coords = 0;
 m.autofill        = 0;
 
 const manager    = new GridManager(m)
-const squareGrid = new SquareGrid({divisions : 1});
+const squareGrid = new SquareGrid({divisions : 10});
 
 squareGrid.generate(manager.width, manager.height);
 manager.setGrid(squareGrid);
