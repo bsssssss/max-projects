@@ -7,6 +7,20 @@ class Ball
     this.position = position;
     this.radius   = radius;
     this.color    = color;
+
+    this.speed_x = 6;
+    this.speed_y = 1;
+  }
+
+  draw()
+  {
+    this.update();
+    this.show();
+  }
+
+  update()
+  {
+    this.position.x += 1 * this.speed_x;
   }
 
   show()
@@ -20,6 +34,10 @@ class Ball
 /* --------------------------------------------------- */
 
 const m = mgraphics;
+
+const task    = new Task(run);
+task.interval = 1000 / 30;
+task.repeat();
 
 m.init();
 m.relative_coords = 0;
@@ -51,12 +69,17 @@ function paint()
 {
   width  = m.size[0];
   height = m.size[1];
-
   background();
+
   for (ball of balls)
   {
-    ball.show();
+    ball.draw();
   }
+}
+
+function run()
+{
+  m.redraw();
 }
 
 function background()
