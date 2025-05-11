@@ -74,7 +74,6 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 195.0, 120.0, 55.0, 22.0 ],
-									"presentation_linecount" : 2,
 									"text" : "angle $1"
 								}
 
@@ -141,7 +140,7 @@
 
 							}
  ],
-						"originid" : "pat-40"
+						"originid" : "pat-72"
 					}
 ,
 					"patching_rect" : [ 45.0, 135.0, 127.0, 22.0 ],
@@ -194,7 +193,7 @@
 							}
  ],
 						"lines" : [  ],
-						"originid" : "pat-42"
+						"originid" : "pat-74"
 					}
 ,
 					"patching_rect" : [ 45.0, 105.0, 69.0, 22.0 ],
@@ -248,7 +247,7 @@
 							}
  ],
 						"lines" : [  ],
-						"originid" : "pat-44"
+						"originid" : "pat-76"
 					}
 ,
 					"patching_rect" : [ 45.0, 75.0, 74.0, 22.0 ],
@@ -436,7 +435,7 @@
 
 							}
  ],
-						"originid" : "pat-46"
+						"originid" : "pat-78"
 					}
 ,
 					"patching_rect" : [ 45.0, 45.0, 68.0, 22.0 ],
@@ -446,31 +445,31 @@
 			}
  ],
 		"lines" : [  ],
-		"originid" : "pat-38",
+		"originid" : "pat-70",
 		"dependency_cache" : [ 			{
 				"name" : "10PRINT.js",
-				"bootpath" : "~/Code/max9/Projects/Visual-playground/visual-playground/code",
+				"bootpath" : "~/Code/max9/Projects/visual-playground/visual-playground/code",
 				"patcherrelativepath" : "../code",
 				"type" : "TEXT",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "islamic-star-patterns_los.js",
-				"bootpath" : "~/Code/max9/Projects/Visual-playground/visual-playground/code",
+				"bootpath" : "~/Code/max9/Projects/visual-playground/visual-playground/code",
 				"patcherrelativepath" : "../code",
 				"type" : "TEXT",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "recurse-1.js",
-				"bootpath" : "~/Code/max9/Projects/Visual-playground/visual-playground/code",
+				"bootpath" : "~/Code/max9/Projects/visual-playground/visual-playground/code",
 				"patcherrelativepath" : "../code",
 				"type" : "TEXT",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "repetitions-1.js",
-				"bootpath" : "~/Code/max9/Projects/Visual-playground/visual-playground/code",
+				"bootpath" : "~/Code/max9/Projects/visual-playground/visual-playground/code",
 				"patcherrelativepath" : "../code",
 				"type" : "TEXT",
 				"implicit" : 1
