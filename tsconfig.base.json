@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "allowUnreachableCode": true,
+    "ignoreDeprecations": "5.0",
+    "lib": ["es5"],
+    "module": "CommonJS",
+    "noImplicitAny": true,
+    "sourceMap": false,
+    "strict": false,
+    "target": "es5"
+  },
+}
