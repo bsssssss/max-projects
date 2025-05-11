@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 0.0, 66.0, 949.0, 1050.0 ],
+		"rect" : [ 0.0, 66.0, 1010.0, 1050.0 ],
 		"gridsize" : [ 15.0, 15.0 ],
 		"gridsnaponopen" : 2,
 		"toolbars_unpinned_last_save" : 15,
@@ -39,7 +39,6 @@
 						"toolbars_unpinned_last_save" : 15,
 						"subpatcher_template" : "no_borders_gridlock",
 						"integercoordinates" : 1,
-						"visible" : 1,
 						"boxes" : [ 							{
 								"box" : 								{
 									"format" : 6,
