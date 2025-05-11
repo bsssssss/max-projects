@@ -26,7 +26,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 135.0, 75.0, 500.0, 500.0 ],
+					"patching_rect" : [ 180.0, 150.0, 195.0, 60.0 ],
 					"textfile" : 					{
 						"filename" : "bouncing-balls.js",
 						"flags" : 0,
