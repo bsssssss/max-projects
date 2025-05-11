@@ -18,6 +18,30 @@
 		"integercoordinates" : 1,
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-4",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "bang" ],
+					"patching_rect" : [ 180.0, 90.0, 58.0, 22.0 ],
+					"text" : "loadbang"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-3",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 180.0, 120.0, 125.0, 22.0 ],
+					"text" : "read bouncing-balls.js"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"border" : 0,
 					"filename" : "bouncing-balls.js",
 					"id" : "obj-1",
@@ -38,8 +62,22 @@
 
 			}
  ],
-		"lines" : [  ],
-		"originid" : "pat-139",
+		"lines" : [ 			{
+				"patchline" : 				{
+					"destination" : [ "obj-1", 0 ],
+					"source" : [ "obj-3", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-3", 0 ],
+					"source" : [ "obj-4", 0 ]
+				}
+
+			}
+ ],
+		"originid" : "pat-20",
 		"dependency_cache" : [ 			{
 				"name" : "bouncing-balls.js",
 				"bootpath" : "~/Code/max9/Projects/visual-playground/visual-playground/bouncing-balls",
