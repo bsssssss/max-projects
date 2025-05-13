@@ -2,7 +2,7 @@
 	"name" : "visual-playground",
 	"version" : 1,
 	"creationdate" : 3829319520,
-	"modificationdate" : 3829848587,
+	"modificationdate" : 3829939430,
 	"viewrect" : [ 1428.0, 583.0, 300.0, 500.0 ],
 	"autoorganize" : 0,
 	"hideprojectwindow" : 0,
@@ -20,6 +20,11 @@
 				"kind" : "patcher",
 				"local" : 1
 			}
+,
+			"truchet-tiles.maxpat" : 			{
+				"kind" : "patcher",
+				"local" : 1
+			}
 
 		}
 ,
@@ -34,12 +39,17 @@
 				"local" : 1
 			}
 ,
+			"bouncing-balls.js" : 			{
+				"kind" : "javascript",
+				"local" : 1
+			}
+,
 			"islamic-star-patterns.js" : 			{
 				"kind" : "javascript",
 				"local" : 1
 			}
 ,
-			"bouncing-balls.js" : 			{
+			"truchet-tiles.js" : 			{
 				"kind" : "javascript",
 				"local" : 1
 			}
