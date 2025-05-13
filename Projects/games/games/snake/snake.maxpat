@@ -18,13 +18,25 @@
 		"integercoordinates" : 1,
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-5",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 345.0, 60.0, 80.0, 22.0 ],
+					"text" : "read snake.js"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-4",
 					"maxclass" : "message",
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 90.0, 645.0, 109.0, 22.0 ],
-					"text" : "score 0"
+					"text" : "score 1"
 				}
 
 			}
@@ -36,7 +48,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 90.0, 90.0, 50.0, 22.0 ],
-					"text" : "32"
+					"text" : "98"
 				}
 
 			}
@@ -112,12 +124,19 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-1", 0 ],
+					"source" : [ "obj-5", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-1", 0 ],
 					"source" : [ "obj-6", 0 ]
 				}
 
 			}
  ],
-		"originid" : "pat-34"
+		"originid" : "pat-12"
 	}
 
 }
