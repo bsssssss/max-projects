@@ -179,7 +179,7 @@ class Edge {
     // Draw mid points
     //
     // m.set_source_rgba(0, 1, 0, 1);
-    // m.arc(mid.x, mid.y, 3, 0, degToRad(360))
+    // m.arc(mid.x, mid.y, 3, 0, deg_to_rad(360))
     // m.fill();
 
     let v1 = Vector2D.sub(this.a, mid);
@@ -254,7 +254,7 @@ class Hankin {
     // Draw intersection points
     //
     // m.set_source_rgba(1, 1, 0, 1);
-    // m.arc(this.b.x, this.b.y, 3, 0, degToRad(360))
+    // m.arc(this.b.x, this.b.y, 3, 0, deg_to_rad(360))
     // m.fill();
   }
 
@@ -379,7 +379,7 @@ m.relative_coords = 0;
 m.autofill        = 0;
 
 const manager    = new GridManager(m)
-const squareGrid = new SquareGrid({divisions : 10});
+const squareGrid = new SquareGrid({divisions : 4});
 
 squareGrid.generate(manager.width, manager.height);
 manager.setGrid(squareGrid);
