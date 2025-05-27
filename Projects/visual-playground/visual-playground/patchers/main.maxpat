@@ -41,6 +41,18 @@
 						"integercoordinates" : 1,
 						"boxes" : [ 							{
 								"box" : 								{
+									"id" : "obj-2",
+									"maxclass" : "message",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 435.0, 105.0, 178.0, 22.0 ],
+									"text" : "read islamic-star-patterns_los.js"
+								}
+
+							}
+, 							{
+								"box" : 								{
 									"format" : 6,
 									"id" : "obj-11",
 									"maxclass" : "flonum",
@@ -127,6 +139,13 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-3", 0 ],
+									"source" : [ "obj-2", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-3", 0 ],
 									"source" : [ "obj-5", 0 ]
 								}
 
@@ -139,7 +158,7 @@
 
 							}
  ],
-						"originid" : "pat-72"
+						"originid" : "pat-20"
 					}
 ,
 					"patching_rect" : [ 45.0, 135.0, 127.0, 22.0 ],
@@ -192,7 +211,7 @@
 							}
  ],
 						"lines" : [  ],
-						"originid" : "pat-74"
+						"originid" : "pat-22"
 					}
 ,
 					"patching_rect" : [ 45.0, 105.0, 69.0, 22.0 ],
@@ -246,7 +265,7 @@
 							}
  ],
 						"lines" : [  ],
-						"originid" : "pat-76"
+						"originid" : "pat-24"
 					}
 ,
 					"patching_rect" : [ 45.0, 75.0, 74.0, 22.0 ],
@@ -434,7 +453,7 @@
 
 							}
  ],
-						"originid" : "pat-78"
+						"originid" : "pat-26"
 					}
 ,
 					"patching_rect" : [ 45.0, 45.0, 68.0, 22.0 ],
@@ -444,7 +463,7 @@
 			}
  ],
 		"lines" : [  ],
-		"originid" : "pat-70",
+		"originid" : "pat-18",
 		"dependency_cache" : [ 			{
 				"name" : "10PRINT.js",
 				"bootpath" : "~/Code/max9/Projects/visual-playground/visual-playground/code",
