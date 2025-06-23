@@ -10,6 +10,7 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "@types/max-api": "^2.0.3",
     "@types/maxmsp": "^1.0.15",
     "typescript": "^5.8.3"
   }
