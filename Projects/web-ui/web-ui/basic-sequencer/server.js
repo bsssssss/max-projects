@@ -1,14 +1,16 @@
 const maxAPI = require('max-api');
-const http = require('node:http');
+const http = require('http');
 const fs = require('fs');
 const ws = require('ws');
 
+const PORT = 7400;
+
+const dir = './public/';
 const htmlPath = './public/index.html';
 const cssPath = './public/style.css';
 
 const wss = new ws.WebSocketServer({ port: 7401 });
 let clients = [];
-
 wss.on('connection', (socket) => {
     maxAPI.post('WebSocket client connected');
     clients.push(socket);
@@ -24,9 +26,9 @@ fs.watch(htmlPath, (eventType, filename) => {
 });
 
 const server = http.createServer((req, res) => {
-    maxAPI.post(req.url);
+    maxAPI.post('request: ' + req.url);
     if (req.url == '/') {
-        fs.readFile(htmlPath, (err, data) => {
+        fs.readFile(dir + 'index.html', (err, data) => {
             res.writeHead(200, {
                 'Content-Type': 'text/html',
                 'Content-length': data.length,
@@ -35,9 +37,18 @@ const server = http.createServer((req, res) => {
             res.end();
         });
     } else if (req.url == '/style.css') {
-        fs.readFile(cssPath, (err, data) => {
+        fs.readFile(dir + 'style.css', (err, data) => {
             res.writeHead(200, {
                 'Content-Type': 'text/css',
+                'Content-length': data.length,
+            });
+            res.write(data);
+            res.end();
+        });
+    } else if (req.url == '/scripts.js') {
+        fs.readFile(dir + 'scripts.js', (err, data) => {
+            res.writeHead(200, {
+                'Content-Type': 'text/javascript',
                 'Content-length': data.length,
             });
             res.write(data);
@@ -46,6 +57,7 @@ const server = http.createServer((req, res) => {
     }
 });
 
-server.listen(7400, () => {
+server.listen(PORT, () => {
     maxAPI.post('Started server at http://localhost:7400');
+    maxAPI.outlet('url', `http://localhost:${PORT}`);
 });
