@@ -3,6 +3,9 @@ const http = require('node:http');
 const fs = require('fs');
 const ws = require('ws');
 
+const htmlPath = './public/index.html';
+const cssPath = './public/style.css';
+
 const wss = new ws.WebSocketServer({ port: 7401 });
 let clients = [];
 
@@ -16,21 +19,31 @@ wss.on('connection', (socket) => {
     });
 });
 
-const htmlPath = './public/index.html';
 fs.watch(htmlPath, (eventType, filename) => {
     maxAPI.post(`${filename} => ${eventType}`);
 });
 
 const server = http.createServer((req, res) => {
-    fs.readFile(htmlPath, (err, html) => {
-        maxAPI.post(html.toString());
-        res.writeHead(200, {
-            'Content-Type': 'text/html',
-            'Content-length': html.length,
+    maxAPI.post(req.url);
+    if (req.url == '/') {
+        fs.readFile(htmlPath, (err, data) => {
+            res.writeHead(200, {
+                'Content-Type': 'text/html',
+                'Content-length': data.length,
+            });
+            res.write(data);
+            res.end();
         });
-        res.write(html);
-        res.end();
-    });
+    } else if (req.url == '/style.css') {
+        fs.readFile(cssPath, (err, data) => {
+            res.writeHead(200, {
+                'Content-Type': 'text/css',
+                'Content-length': data.length,
+            });
+            res.write(data);
+            res.end();
+        });
+    }
 });
 
 server.listen(7400, () => {
