@@ -1,12 +1,14 @@
 body {
-    background-color: hsl(110 50% 50%);
+    background-color: tan;
 }
 
 .sliders {
     display: flex;
     width: 240px;
+    border: 1px solid peru;
 }
 
 .slider {
     height: 100px;
+    background-color: peru;
 }

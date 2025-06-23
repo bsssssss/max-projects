@@ -2,18 +2,23 @@
 	"name" : "web-ui",
 	"version" : 1,
 	"creationdate" : 3833525877,
-	"modificationdate" : 3833539421,
+	"modificationdate" : 3833543464,
 	"viewrect" : [ 25.0, 119.0, 300.0, 500.0 ],
-	"autoorganize" : 1,
+	"autoorganize" : 0,
 	"hideprojectwindow" : 0,
 	"showdependencies" : 1,
 	"autolocalize" : 0,
 	"contents" : 	{
 		"patchers" : 		{
-			"main.maxpat" : 			{
+			"basic-sequencer.maxpat" : 			{
 				"kind" : "patcher",
 				"local" : 1,
 				"toplevel" : 1
+			}
+,
+			"main.maxpat" : 			{
+				"kind" : "patcher",
+				"local" : 1
 			}
 
 		}
