@@ -2,7 +2,7 @@
 	"name" : "web-ui",
 	"version" : 1,
 	"creationdate" : 3833525877,
-	"modificationdate" : 3833526204,
+	"modificationdate" : 3833539421,
 	"viewrect" : [ 25.0, 119.0, 300.0, 500.0 ],
 	"autoorganize" : 1,
 	"hideprojectwindow" : 0,
@@ -21,6 +21,19 @@
 		"code" : 		{
 			"server.js" : 			{
 				"kind" : "javascript",
+				"local" : 1
+			}
+
+		}
+,
+		"other" : 		{
+			"index.html" : 			{
+				"kind" : "webpage",
+				"local" : 1
+			}
+,
+			"style.css" : 			{
+				"kind" : "stylesheet",
 				"local" : 1
 			}
 

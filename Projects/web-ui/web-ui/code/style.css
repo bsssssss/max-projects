@@ -1,0 +1,12 @@
+body {
+    background-color: hsl(110 50% 50%);
+}
+
+.sliders {
+    display: flex;
+    width: 240px;
+}
+
+.slider {
+    height: 100px;
+}
