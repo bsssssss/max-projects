@@ -10,13 +10,25 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 0.0, 66.0, 1728.0, 1051.0 ],
+		"rect" : [ 0.0, 66.0, 952.0, 1051.0 ],
 		"gridsize" : [ 15.0, 15.0 ],
 		"gridsnaponopen" : 2,
 		"toolbars_unpinned_last_save" : 15,
 		"subpatcher_template" : "no_borders_gridlock",
 		"integercoordinates" : 1,
 		"boxes" : [ 			{
+				"box" : 				{
+					"id" : "obj-3",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "bang" ],
+					"patching_rect" : [ 375.0, 405.0, 22.0, 22.0 ],
+					"text" : "t b"
+				}
+
+			}
+, 			{
 				"box" : 				{
 					"id" : "obj-15",
 					"maxclass" : "message",
@@ -47,7 +59,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "bang" ],
-					"patching_rect" : [ 75.0, 405.0, 58.0, 22.0 ],
+					"patching_rect" : [ 75.0, 375.0, 58.0, 22.0 ],
 					"text" : "loadbang"
 				}
 
@@ -94,7 +106,7 @@
 					"numoutlets" : 1,
 					"offset" : [ 0.0, 0.0 ],
 					"outlettype" : [ "bang" ],
-					"patching_rect" : [ 360.0, 195.0, 510.0, 255.0 ],
+					"patching_rect" : [ 375.0, 75.0, 400.0, 220.0 ],
 					"viewvisibility" : 1
 				}
 
@@ -111,6 +123,8 @@
 					"saved_object_attributes" : 					{
 						"autostart" : 1,
 						"defer" : 0,
+						"node_bin_path" : "",
+						"npm_bin_path" : "",
 						"watch" : 1
 					}
 ,
@@ -170,6 +184,13 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-8", 0 ],
+					"source" : [ "obj-3", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-1", 0 ],
 					"source" : [ "obj-4", 0 ]
 				}
@@ -185,6 +206,22 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-15", 0 ],
+					"order" : 1,
+					"source" : [ "obj-9", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-3", 0 ],
+					"source" : [ "obj-9", 1 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-3", 0 ],
+					"order" : 0,
 					"source" : [ "obj-9", 0 ]
 				}
 
@@ -210,8 +247,8 @@
 			}
 , 			{
 				"name" : "server.js",
-				"bootpath" : "~/dev/github.com/bsssssss/max9/Projects/web-ui/web-ui/code",
-				"patcherrelativepath" : "../code",
+				"bootpath" : "~/dev/github.com/bsssssss/max9/Projects/web-ui/web-ui/basic-sequencer",
+				"patcherrelativepath" : ".",
 				"type" : "TEXT",
 				"implicit" : 1
 			}
