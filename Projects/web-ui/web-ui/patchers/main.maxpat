@@ -23,7 +23,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 495.0, 180.0, 133.0, 22.0 ],
+					"patching_rect" : [ 132.0, 30.0, 133.0, 22.0 ],
 					"text" : "url http://localhost:7400"
 				}
 
@@ -36,7 +36,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 495.0, 210.0, 320.0, 240.0 ],
+					"patching_rect" : [ 132.0, 60.0, 320.0, 240.0 ],
 					"rendermode" : 0,
 					"url" : "http://localhost:7400"
 				}
@@ -58,7 +58,7 @@
 					"numoutlets" : 1,
 					"offset" : [ 0.0, 0.0 ],
 					"outlettype" : [ "bang" ],
-					"patching_rect" : [ 225.0, 585.0, 522.0, 420.0 ],
+					"patching_rect" : [ 285.0, 825.0, 690.0, 195.0 ],
 					"viewvisibility" : 1
 				}
 
@@ -70,7 +70,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 72.0, 555.0, 172.0, 22.0 ],
+					"patching_rect" : [ 132.0, 795.0, 172.0, 22.0 ],
 					"saved_object_attributes" : 					{
 						"autostart" : 0,
 						"defer" : 0,
@@ -95,7 +95,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 72.0, 525.0, 64.0, 22.0 ],
+					"patching_rect" : [ 132.0, 765.0, 64.0, 22.0 ],
 					"text" : "script start"
 				}
 
