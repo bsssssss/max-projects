@@ -4,9 +4,9 @@ const fs = require('fs');
 const ws = require('ws');
 
 const PORT = 7400;
-
 const dir = './public/';
 
+/* Listen to websocket connections on port 7401 and store the socket */
 const wss = new ws.WebSocketServer({ port: 7401 });
 let clients = [];
 wss.on('connection', (socket) => {
@@ -25,6 +25,7 @@ fs.watchFile(dir + 'index.html', (eventType, filename) => {
     }
 });
 
+/* Create and setup the local server */
 const server = http.createServer((req, res) => {
     maxAPI.post('request: ' + req.url);
     if (req.url == '/') {
