@@ -1,4 +1,9 @@
-const maxAPI = require('max-api');
-const ws = require('ws');
+const socket = new WebSocket('ws://localhost:7401');
 
-maxAPI.post('hello script !');
+socket.onopen = () => {
+    console.log('Connected to websocket');
+};
+
+socket.onmessage = (event) => {
+    console.log(`Received message: ${event.data}`);
+};

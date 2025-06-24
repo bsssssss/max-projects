@@ -6,8 +6,6 @@ const ws = require('ws');
 const PORT = 7400;
 
 const dir = './public/';
-const htmlPath = './public/index.html';
-const cssPath = './public/style.css';
 
 const wss = new ws.WebSocketServer({ port: 7401 });
 let clients = [];
@@ -21,8 +19,10 @@ wss.on('connection', (socket) => {
     });
 });
 
-fs.watch(htmlPath, (eventType, filename) => {
-    maxAPI.post(`${filename} => ${eventType}`);
+fs.watchFile(dir + 'index.html', (eventType, filename) => {
+    for (client of clients) {
+        client.send('reload');
+    }
 });
 
 const server = http.createServer((req, res) => {
