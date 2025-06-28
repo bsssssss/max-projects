@@ -2,9 +2,9 @@
 	"name" : "mini-notation",
 	"version" : 1,
 	"creationdate" : 3833910358,
-	"modificationdate" : 3833910366,
+	"modificationdate" : 3833910737,
 	"viewrect" : [ 25.0, 119.0, 300.0, 500.0 ],
-	"autoorganize" : 1,
+	"autoorganize" : 0,
 	"hideprojectwindow" : 0,
 	"showdependencies" : 1,
 	"autolocalize" : 0,
@@ -14,6 +14,19 @@
 				"kind" : "patcher",
 				"local" : 1,
 				"toplevel" : 1
+			}
+
+		}
+,
+		"code" : 		{
+			"mini-notation-parser.js" : 			{
+				"kind" : "javascript",
+				"local" : 1,
+				"singleton" : 				{
+					"bootpath" : "~/dev/github.com/bsssssss/max9/Projects/mini-notation/patchers",
+					"projectrelativepath" : "./patchers"
+				}
+
 			}
 
 		}

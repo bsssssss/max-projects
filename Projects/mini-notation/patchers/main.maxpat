@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 60.0, 134.0, 783.0, 669.0 ],
+		"rect" : [ 0.0, 66.0, 1728.0, 1051.0 ],
 		"gridsize" : [ 15.0, 15.0 ],
 		"gridsnaponopen" : 2,
 		"toolbars_unpinned_last_save" : 15,
