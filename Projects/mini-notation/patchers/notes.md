@@ -15,6 +15,14 @@ I'm thinking about this in terms of event + operator + operand.
 
 `0!2` vs `sound1!2`
 
+check if valid number with `isFinite(elem)`.
+
 ## How to nest events ?
 
-ex `[0 1]!2` -> `0 1 0 1`
+ex `[0 1]!2` -> `0 1 0 1` `[0 [0 1]!2]!2 2!2` -> 0 0 1 0 1 0 0 1 0 1 2 2
+
+1. **Bracket detection** - Identify `[...]` groups in input
+2. **Recursive parsing** - Parse nested groups before applying operators
+3. **Group expansion** - Handle `[group]!n` by repeating the entire
+4. **Flatten output** - Convert nested arrays to flat sequence
+5. **Mixed nesting** - Support `[element [nested]!n]!m` patterns
