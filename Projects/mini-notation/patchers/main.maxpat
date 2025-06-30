@@ -18,12 +18,24 @@
 		"integercoordinates" : 1,
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-8",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 465.0, 375.0, 71.0, 22.0 ],
+					"text" : "bd sd hh sd"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-7",
 					"maxclass" : "message",
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 615.0, 345.0, 49.0, 22.0 ],
+					"patching_rect" : [ 450.0, 345.0, 49.0, 22.0 ],
 					"text" : "0.333!3"
 				}
 
@@ -35,7 +47,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 525.0, 345.0, 78.0, 22.0 ],
+					"patching_rect" : [ 435.0, 315.0, 78.0, 22.0 ],
 					"text" : "bd1!4 sd20!2"
 				}
 
@@ -47,8 +59,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 463.0, 345.0, 45.0, 22.0 ],
-					"presentation_linecount" : 2,
+					"patching_rect" : [ 420.0, 285.0, 45.0, 22.0 ],
 					"text" : "0!3 1!2"
 				}
 
@@ -60,8 +71,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 255.0, 540.0, 173.0, 22.0 ],
-					"text" : "1bd 1bd 1bd 1bd sd20 sd20"
+					"patching_rect" : [ 255.0, 525.0, 173.0, 22.0 ],
+					"text" : "bd sd hh sd"
 				}
 
 			}
@@ -96,7 +107,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 409.0, 345.0, 35.0, 22.0 ],
+					"patching_rect" : [ 409.0, 255.0, 35.0, 22.0 ],
 					"text" : "0 1 2"
 				}
 
@@ -172,6 +183,13 @@
 				"patchline" : 				{
 					"destination" : [ "obj-5", 0 ],
 					"source" : [ "obj-7", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-5", 0 ],
+					"source" : [ "obj-8", 0 ]
 				}
 
 			}
