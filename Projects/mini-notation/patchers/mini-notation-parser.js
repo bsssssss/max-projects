@@ -1,16 +1,11 @@
 outlets = 2;
 
-post('===== TEST =====' +
-     '\n');
-outlet(1, `test`, '0 1');
-outlet(1, `test`, '0!2 1!2');
-outlet(1, `test`, 'bd1 sd1');
-outlet(1, `test`, 'bd1!2 sd1!2');
+outlet(1, `test`);
 
 function p(...expr)
 {
-    let output = parseExpression(expr);
-    post(expr + ' --> ' + output + '\n');
+    let parsed = parseExpression(expr);
+    post(expr + ' --> ' + parsed + '\n');
 }
 
 function parseExpression(expr)
@@ -27,7 +22,7 @@ function parseExpression(expr)
             }
         }
         else {
-            post('error: could not process event type');
+            post('error: could not process expression type');
         }
     }
     return parsed;
