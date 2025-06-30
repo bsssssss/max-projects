@@ -3,21 +3,31 @@
 Inspired by live coding language TidalCycles, the goal is to express patterns in
 expressive and concise ways.
 
-I'm thinking about this in terms of `event` + `operator` + `operand`.
+To be useful in max, i think the most convenient thing to have for now is a
+syntax to create complex lists of events.
 
-# Syntax
+In this context, an expression is a space-separated list of sub-expressions.
 
-`{event}!{n}` - Repeat `{event}`, `{n}` times.
+Sub-expressions can be :
 
-# Questions
+- atoms (single values) : `0 1 2 3`
+- atoms with operators applied to them : `0!4 1!4`
+- groups of sub-expressions : `[0 1]!2 [2 3]!2`
 
-## How to nest events ?
+The idea is to be able to arbitrarly nest everything ! Something like
+`[0 1 [2 3]!2]` should be possible.
 
-`[0 1]!2` -> `0 1 0 1` \
-`[0 [0 1]!2]!2 2!2` -> 0 0 1 0 1 0 0 1 0 1 2 2
+### Operators
 
-1. **Bracket detection** - Identify `[...]` groups in input
-2. **Recursive parsing** - Parse nested groups before applying operators
-3. **Group expansion** - Handle `[group]!n` by repeating the entire sequence
-4. **Flatten output** - Convert nested arrays to flat sequence
-5. **Mixed nesting** - Support `[element [nested]!n]!m` patterns
+`!` - If followed by an integer `n`, repeats the expression `n` times
+
+### To implement
+
+#### isAtom()
+
+Checks if expression is a single value (string/number) not followed by an
+operator.
+
+#### hasOperator()
+
+Checks if expression is a value followed by an operator.

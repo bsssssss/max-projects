@@ -1,29 +1,60 @@
-function parse(...expr) {
-    let output = [];
+outlets = 2;
 
+post('===== TEST =====' +
+     '\n');
+outlet(1, `test`, '0 1');
+outlet(1, `test`, '0!2 1!2');
+outlet(1, `test`, 'bd1 sd1');
+outlet(1, `test`, 'bd1!2 sd1!2');
+
+function parse(...expr)
+{
+    let output = [];
     for (let token of expr) {
-        if (
-            typeof token == 'number' ||
-            (typeof token == 'string' && !token.includes('!'))
-        ) {
+        if (isAtom(token)) {
             output.push(token);
-        } else if (typeof token == 'string') {
+        }
+        else if (hasOperator(token)) {
             let elem = token.split('!');
             for (i = 0; i < elem[1]; i++) {
-                let res = sanitizeType(elem[0]);
-                output.push(res);
+                output.push(sanitizeType(elem[0]));
             }
-        } else {
+        }
+        else {
             post('error: could not process event type');
         }
     }
-    outlet(0, output);
+    post(expr + ' --> ' + output + '\n');
 }
 
-function sanitizeType(elem) {
+function isAtom(input)
+{
+    if (
+    typeof input == 'number' ||
+    (typeof input == 'string' && !input.includes('!'))) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+function hasOperator(input)
+{
+    if (typeof input == 'string' && input.includes('!')) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+function sanitizeType(elem)
+{
     if (isFinite(elem)) {
         return parseFloat(elem);
-    } else {
+    }
+    else {
         return elem;
     }
 }
