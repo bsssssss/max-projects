@@ -58,8 +58,8 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 240.0, 375.0, 86.0, 22.0 ],
-					"text" : "prepend parse"
+					"patching_rect" : [ 240.0, 375.0, 63.0, 22.0 ],
+					"text" : "prepend p"
 				}
 
 			}

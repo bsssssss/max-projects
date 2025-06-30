@@ -17,17 +17,11 @@ Sub-expressions can be :
 The idea is to be able to arbitrarly nest everything ! Something like
 `[0 1 [2 3]!2]` should be possible.
 
-### Operators
+# Operators
 
 `!` - If followed by an integer `n`, repeats the expression `n` times
 
-### To implement
+# To implement
 
-#### isAtom()
-
-Checks if expression is a single value (string/number) not followed by an
-operator.
-
-#### hasOperator()
-
-Checks if expression is a value followed by an operator.
+**isAtom()** : Check if expression is a value not followed by an operator.
+**hasOperator()** : Check if expression is a value followed by an operator.

@@ -7,24 +7,30 @@ outlet(1, `test`, '0!2 1!2');
 outlet(1, `test`, 'bd1 sd1');
 outlet(1, `test`, 'bd1!2 sd1!2');
 
-function parse(...expr)
+function p(...expr)
 {
-    let output = [];
+    let output = parseExpression(expr);
+    post(expr + ' --> ' + output + '\n');
+}
+
+function parseExpression(expr)
+{
+    let parsed = [];
     for (let token of expr) {
         if (isAtom(token)) {
-            output.push(token);
+            parsed.push(token);
         }
         else if (hasOperator(token)) {
             let elem = token.split('!');
             for (i = 0; i < elem[1]; i++) {
-                output.push(sanitizeType(elem[0]));
+                parsed.push(sanitizeType(elem[0]));
             }
         }
         else {
             post('error: could not process event type');
         }
     }
-    post(expr + ' --> ' + output + '\n');
+    return parsed;
 }
 
 function isAtom(input)
