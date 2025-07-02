@@ -1,4 +1,4 @@
 # Mini notation
 
-Generate complex lists of events with a simple and expressive syntax, inspired
+Generate complex lists with simple and expressive syntax, inspired
 from TidalCycles/Strudel.
