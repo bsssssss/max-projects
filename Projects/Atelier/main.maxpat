@@ -10,10 +10,10 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 0.0, 60.0, 1728.0, 1057.0 ],
+		"rect" : [ 0.0, 28.0, 1728.0, 1018.0 ],
 		"gridsize" : [ 15.0, 15.0 ],
 		"gridsnaponopen" : 2,
-		"toolbars_unpinned_last_save" : 15,
+		"toolbars_unpinned_last_save" : 7,
 		"subpatcher_template" : "no_borders_gridlock",
 		"integercoordinates" : 1,
 		"boxes" : [ 			{
@@ -23,7 +23,7 @@
 					"numinlets" : 0,
 					"numoutlets" : 1,
 					"outlettype" : [ "multichannelsignal" ],
-					"patching_rect" : [ 45.0, 210.0, 202.0, 22.0 ],
+					"patching_rect" : [ 165.0, 585.0, 202.0, 22.0 ],
 					"text" : "feedback_integrator_synthesis_3CH"
 				}
 
@@ -53,9 +53,9 @@
 										"maxclass" : "newobj",
 										"text" : "tanh",
 										"patching_rect" : [ 45.0, 105.0, 32.0, 22.0 ],
-										"outlettype" : [ "" ],
 										"numinlets" : 1,
 										"numoutlets" : 1,
+										"outlettype" : [ "" ],
 										"id" : "obj-6"
 									}
 
@@ -65,9 +65,9 @@
 										"maxclass" : "newobj",
 										"text" : "dcblock",
 										"patching_rect" : [ 45.0, 75.0, 49.0, 22.0 ],
-										"outlettype" : [ "" ],
 										"numinlets" : 1,
 										"numoutlets" : 1,
+										"outlettype" : [ "" ],
 										"id" : "obj-5"
 									}
 
@@ -77,9 +77,9 @@
 										"maxclass" : "newobj",
 										"text" : "in 1",
 										"patching_rect" : [ 45.0, 45.0, 28.0, 22.0 ],
-										"outlettype" : [ "" ],
 										"numinlets" : 0,
 										"numoutlets" : 1,
+										"outlettype" : [ "" ],
 										"id" : "obj-1"
 									}
 
@@ -98,8 +98,8 @@
  ],
 							"lines" : [ 								{
 									"patchline" : 									{
-										"source" : [ "obj-5", 0 ],
-										"destination" : [ "obj-6", 0 ]
+										"source" : [ "obj-1", 0 ],
+										"destination" : [ "obj-5", 0 ]
 									}
 
 								}
@@ -112,8 +112,8 @@
 								}
 , 								{
 									"patchline" : 									{
-										"source" : [ "obj-1", 0 ],
-										"destination" : [ "obj-5", 0 ]
+										"source" : [ "obj-5", 0 ],
+										"destination" : [ "obj-6", 0 ]
 									}
 
 								}
@@ -127,9 +127,9 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "multichannelsignal" ],
-					"patching_rect" : [ 45.0, 495.0, 120.0, 22.0 ],
+					"patching_rect" : [ 165.0, 693.0, 120.0, 22.0 ],
 					"text" : "mc.gen~ @t mainout",
-					"wrapper_uniquekey" : "u759000731"
+					"wrapper_uniquekey" : "u721000767"
 				}
 
 			}
@@ -143,7 +143,7 @@
 					"orientation" : 1,
 					"outlettype" : [ "multichannelsignal", "", "float", "list" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 45.0, 435.0, 136.0, 47.0 ],
+					"patching_rect" : [ 165.0, 633.0, 136.0, 47.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_longname" : "mc.live.gain~",
@@ -167,7 +167,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 45.0, 525.0, 54.0, 22.0 ],
+					"patching_rect" : [ 165.0, 723.0, 54.0, 22.0 ],
 					"text" : "mc.dac~"
 				}
 
@@ -246,12 +246,58 @@
  ],
 		"parameters" : 		{
 			"obj-4" : [ "mc.live.gain~", "mc.live.gain~", 0 ],
-			"parameterbanks" : 			{
-				"0" : 				{
-					"index" : 0,
-					"name" : "",
-					"parameters" : [ "-", "-", "-", "-", "-", "-", "-", "-" ],
-					"buttons" : [ "-", "-", "-", "-", "-", "-", "-", "-" ]
+			"obj-8::obj-15" : [ "Bell Freq", "Bell Freq", 0 ],
+			"obj-8::obj-16" : [ "Bell Freq[1]", "Bell Q", 0 ],
+			"obj-8::obj-17" : [ "Bell Freq[2]", "Bell Gain", 0 ],
+			"obj-8::obj-32" : [ "Bell Freq[3]", "Bell Gain", 0 ],
+			"obj-8::obj-33" : [ "Bell Freq[4]", "Bell Q", 0 ],
+			"obj-8::obj-35" : [ "Bell Freq[5]", "Bell Freq", 0 ],
+			"obj-8::obj-37" : [ "Bell Freq[6]", "Bell Gain", 0 ],
+			"obj-8::obj-38" : [ "Bell Freq[7]", "Bell Q", 0 ],
+			"obj-8::obj-40" : [ "Bell Freq[8]", "Bell Freq", 0 ],
+			"parameter_overrides" : 			{
+				"obj-8::obj-15" : 				{
+					"parameter_exponent" : 3.33,
+					"parameter_longname" : "Bell Freq",
+					"parameter_range" : [ 0.0, 12000.0 ],
+					"parameter_shortname" : "Bell Freq",
+					"parameter_unitstyle" : 3
+				}
+,
+				"obj-8::obj-16" : 				{
+					"parameter_longname" : "Bell Freq[1]",
+					"parameter_range" : [ 0.0, 10.0 ],
+					"parameter_shortname" : "Bell Q",
+					"parameter_unitstyle" : 1
+				}
+,
+				"obj-8::obj-17" : 				{
+					"parameter_longname" : "Bell Freq[2]",
+					"parameter_shortname" : "Bell Gain"
+				}
+,
+				"obj-8::obj-32" : 				{
+					"parameter_longname" : "Bell Freq[3]"
+				}
+,
+				"obj-8::obj-33" : 				{
+					"parameter_longname" : "Bell Freq[4]"
+				}
+,
+				"obj-8::obj-35" : 				{
+					"parameter_longname" : "Bell Freq[5]"
+				}
+,
+				"obj-8::obj-37" : 				{
+					"parameter_longname" : "Bell Freq[6]"
+				}
+,
+				"obj-8::obj-38" : 				{
+					"parameter_longname" : "Bell Freq[7]"
+				}
+,
+				"obj-8::obj-40" : 				{
+					"parameter_longname" : "Bell Freq[8]"
 				}
 
 			}
