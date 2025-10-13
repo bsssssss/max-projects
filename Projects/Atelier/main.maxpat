@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 0.0, 28.0, 1728.0, 1018.0 ],
+		"rect" : [ 0.0, 60.0, 1728.0, 1023.0 ],
 		"gridsize" : [ 15.0, 15.0 ],
 		"gridsnaponopen" : 2,
 		"toolbars_unpinned_last_save" : 7,
@@ -23,7 +23,7 @@
 					"numinlets" : 0,
 					"numoutlets" : 1,
 					"outlettype" : [ "multichannelsignal" ],
-					"patching_rect" : [ 165.0, 585.0, 202.0, 22.0 ],
+					"patching_rect" : [ 135.0, 315.0, 202.0, 22.0 ],
 					"text" : "feedback_integrator_synthesis_3CH"
 				}
 
@@ -54,9 +54,9 @@
 										"text" : "tanh",
 										"patching_rect" : [ 45.0, 105.0, 32.0, 22.0 ],
 										"numinlets" : 1,
+										"id" : "obj-6",
 										"numoutlets" : 1,
-										"outlettype" : [ "" ],
-										"id" : "obj-6"
+										"outlettype" : [ "" ]
 									}
 
 								}
@@ -66,9 +66,9 @@
 										"text" : "dcblock",
 										"patching_rect" : [ 45.0, 75.0, 49.0, 22.0 ],
 										"numinlets" : 1,
+										"id" : "obj-5",
 										"numoutlets" : 1,
-										"outlettype" : [ "" ],
-										"id" : "obj-5"
+										"outlettype" : [ "" ]
 									}
 
 								}
@@ -78,9 +78,9 @@
 										"text" : "in 1",
 										"patching_rect" : [ 45.0, 45.0, 28.0, 22.0 ],
 										"numinlets" : 0,
+										"id" : "obj-1",
 										"numoutlets" : 1,
-										"outlettype" : [ "" ],
-										"id" : "obj-1"
+										"outlettype" : [ "" ]
 									}
 
 								}
@@ -90,8 +90,8 @@
 										"text" : "out 1",
 										"patching_rect" : [ 45.0, 135.0, 35.0, 22.0 ],
 										"numinlets" : 1,
-										"numoutlets" : 0,
-										"id" : "obj-4"
+										"id" : "obj-4",
+										"numoutlets" : 0
 									}
 
 								}
@@ -127,9 +127,9 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "multichannelsignal" ],
-					"patching_rect" : [ 165.0, 693.0, 120.0, 22.0 ],
+					"patching_rect" : [ 135.0, 423.0, 120.0, 22.0 ],
 					"text" : "mc.gen~ @t mainout",
-					"wrapper_uniquekey" : "u721000767"
+					"wrapper_uniquekey" : "u317000928"
 				}
 
 			}
@@ -143,7 +143,7 @@
 					"orientation" : 1,
 					"outlettype" : [ "multichannelsignal", "", "float", "list" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 165.0, 633.0, 136.0, 47.0 ],
+					"patching_rect" : [ 135.0, 363.0, 136.0, 47.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_longname" : "mc.live.gain~",
@@ -167,7 +167,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 165.0, 723.0, 54.0, 22.0 ],
+					"patching_rect" : [ 135.0, 453.0, 54.0, 22.0 ],
 					"text" : "mc.dac~"
 				}
 
