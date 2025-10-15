@@ -18,13 +18,99 @@
 		"integercoordinates" : 1,
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-13",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 238.0, 60.0, 54.0, 22.0 ],
+					"text" : "deferlow"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-9",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 167.0, 150.0, 64.0, 22.0 ],
+					"text" : "s player_2"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-10",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 167.0, 120.0, 104.0, 22.0 ],
+					"text" : "gamepad-router 1"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-7",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "signal" ],
+					"patching_rect" : [ 585.0, 459.0, 59.0, 22.0 ],
+					"text" : "sfrecord~"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-6",
+					"lastchannelcount" : 0,
+					"maxclass" : "live.gain~",
+					"numinlets" : 2,
+					"numoutlets" : 5,
+					"outlettype" : [ "signal", "signal", "", "float", "list" ],
+					"parameter_enable" : 1,
+					"patching_rect" : [ 525.0, 345.0, 48.0, 136.0 ],
+					"saved_attribute_attributes" : 					{
+						"valueof" : 						{
+							"parameter_longname" : "live.gain~",
+							"parameter_mmax" : 6.0,
+							"parameter_mmin" : -70.0,
+							"parameter_modmode" : 3,
+							"parameter_shortname" : "live.gain~",
+							"parameter_type" : 0,
+							"parameter_unitstyle" : 4
+						}
+
+					}
+,
+					"varname" : "live.gain~"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-5",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 2,
+					"outlettype" : [ "signal", "signal" ],
+					"patching_rect" : [ 525.0, 315.0, 55.0, 22.0 ],
+					"text" : "adc~ 7 8"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-8",
 					"maxclass" : "newobj",
 					"numinlets" : 0,
 					"numoutlets" : 1,
 					"outlettype" : [ "multichannelsignal" ],
-					"patching_rect" : [ 135.0, 315.0, 202.0, 22.0 ],
-					"text" : "feedback_integrator_synthesis_3CH"
+					"patching_rect" : [ 135.0, 315.0, 194.0, 22.0 ],
+					"text" : "feedback_integrator_network_3CH"
 				}
 
 			}
@@ -53,8 +139,8 @@
 										"maxclass" : "newobj",
 										"text" : "tanh",
 										"patching_rect" : [ 45.0, 105.0, 32.0, 22.0 ],
-										"numinlets" : 1,
 										"id" : "obj-6",
+										"numinlets" : 1,
 										"numoutlets" : 1,
 										"outlettype" : [ "" ]
 									}
@@ -65,8 +151,8 @@
 										"maxclass" : "newobj",
 										"text" : "dcblock",
 										"patching_rect" : [ 45.0, 75.0, 49.0, 22.0 ],
-										"numinlets" : 1,
 										"id" : "obj-5",
+										"numinlets" : 1,
 										"numoutlets" : 1,
 										"outlettype" : [ "" ]
 									}
@@ -77,8 +163,8 @@
 										"maxclass" : "newobj",
 										"text" : "in 1",
 										"patching_rect" : [ 45.0, 45.0, 28.0, 22.0 ],
-										"numinlets" : 0,
 										"id" : "obj-1",
+										"numinlets" : 0,
 										"numoutlets" : 1,
 										"outlettype" : [ "" ]
 									}
@@ -89,8 +175,8 @@
 										"maxclass" : "newobj",
 										"text" : "out 1",
 										"patching_rect" : [ 45.0, 135.0, 35.0, 22.0 ],
-										"numinlets" : 1,
 										"id" : "obj-4",
+										"numinlets" : 1,
 										"numoutlets" : 0
 									}
 
@@ -98,8 +184,8 @@
  ],
 							"lines" : [ 								{
 									"patchline" : 									{
-										"source" : [ "obj-1", 0 ],
-										"destination" : [ "obj-5", 0 ]
+										"source" : [ "obj-5", 0 ],
+										"destination" : [ "obj-6", 0 ]
 									}
 
 								}
@@ -112,8 +198,8 @@
 								}
 , 								{
 									"patchline" : 									{
-										"source" : [ "obj-5", 0 ],
-										"destination" : [ "obj-6", 0 ]
+										"source" : [ "obj-1", 0 ],
+										"destination" : [ "obj-5", 0 ]
 									}
 
 								}
@@ -127,9 +213,9 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "multichannelsignal" ],
-					"patching_rect" : [ 135.0, 423.0, 120.0, 22.0 ],
+					"patching_rect" : [ 135.0, 420.0, 120.0, 22.0 ],
 					"text" : "mc.gen~ @t mainout",
-					"wrapper_uniquekey" : "u317000928"
+					"wrapper_uniquekey" : "u904001080"
 				}
 
 			}
@@ -167,7 +253,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 135.0, 453.0, 54.0, 22.0 ],
+					"patching_rect" : [ 135.0, 450.0, 54.0, 22.0 ],
 					"text" : "mc.dac~"
 				}
 
@@ -178,8 +264,8 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 45.0, 105.0, 61.0, 22.0 ],
-					"text" : "s gmpd_0"
+					"patching_rect" : [ 45.0, 150.0, 64.0, 22.0 ],
+					"text" : "s player_1"
 				}
 
 			}
@@ -190,7 +276,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 45.0, 75.0, 104.0, 22.0 ],
+					"patching_rect" : [ 45.0, 120.0, 104.0, 22.0 ],
 					"text" : "gamepad-router 0"
 				}
 
@@ -202,7 +288,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 45.0, 45.0, 104.0, 22.0 ],
+					"patching_rect" : [ 45.0, 30.0, 104.0, 22.0 ],
 					"text" : "udpreceive 57130"
 				}
 
@@ -210,8 +296,24 @@
  ],
 		"lines" : [ 			{
 				"patchline" : 				{
-					"destination" : [ "obj-19", 0 ],
+					"destination" : [ "obj-10", 0 ],
+					"order" : 0,
 					"source" : [ "obj-1", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-19", 0 ],
+					"order" : 1,
+					"source" : [ "obj-1", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-9", 0 ],
+					"source" : [ "obj-10", 0 ]
 				}
 
 			}
@@ -238,6 +340,20 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-6", 1 ],
+					"source" : [ "obj-5", 1 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-6", 0 ],
+					"source" : [ "obj-5", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-4", 0 ],
 					"source" : [ "obj-8", 0 ]
 				}
@@ -246,58 +362,13 @@
  ],
 		"parameters" : 		{
 			"obj-4" : [ "mc.live.gain~", "mc.live.gain~", 0 ],
-			"obj-8::obj-15" : [ "Bell Freq", "Bell Freq", 0 ],
-			"obj-8::obj-16" : [ "Bell Freq[1]", "Bell Q", 0 ],
-			"obj-8::obj-17" : [ "Bell Freq[2]", "Bell Gain", 0 ],
-			"obj-8::obj-32" : [ "Bell Freq[3]", "Bell Gain", 0 ],
-			"obj-8::obj-33" : [ "Bell Freq[4]", "Bell Q", 0 ],
-			"obj-8::obj-35" : [ "Bell Freq[5]", "Bell Freq", 0 ],
-			"obj-8::obj-37" : [ "Bell Freq[6]", "Bell Gain", 0 ],
-			"obj-8::obj-38" : [ "Bell Freq[7]", "Bell Q", 0 ],
-			"obj-8::obj-40" : [ "Bell Freq[8]", "Bell Freq", 0 ],
-			"parameter_overrides" : 			{
-				"obj-8::obj-15" : 				{
-					"parameter_exponent" : 3.33,
-					"parameter_longname" : "Bell Freq",
-					"parameter_range" : [ 0.0, 12000.0 ],
-					"parameter_shortname" : "Bell Freq",
-					"parameter_unitstyle" : 3
-				}
-,
-				"obj-8::obj-16" : 				{
-					"parameter_longname" : "Bell Freq[1]",
-					"parameter_range" : [ 0.0, 10.0 ],
-					"parameter_shortname" : "Bell Q",
-					"parameter_unitstyle" : 1
-				}
-,
-				"obj-8::obj-17" : 				{
-					"parameter_longname" : "Bell Freq[2]",
-					"parameter_shortname" : "Bell Gain"
-				}
-,
-				"obj-8::obj-32" : 				{
-					"parameter_longname" : "Bell Freq[3]"
-				}
-,
-				"obj-8::obj-33" : 				{
-					"parameter_longname" : "Bell Freq[4]"
-				}
-,
-				"obj-8::obj-35" : 				{
-					"parameter_longname" : "Bell Freq[5]"
-				}
-,
-				"obj-8::obj-37" : 				{
-					"parameter_longname" : "Bell Freq[6]"
-				}
-,
-				"obj-8::obj-38" : 				{
-					"parameter_longname" : "Bell Freq[7]"
-				}
-,
-				"obj-8::obj-40" : 				{
-					"parameter_longname" : "Bell Freq[8]"
+			"obj-6" : [ "live.gain~", "live.gain~", 0 ],
+			"parameterbanks" : 			{
+				"0" : 				{
+					"index" : 0,
+					"name" : "",
+					"parameters" : [ "-", "-", "-", "-", "-", "-", "-", "-" ],
+					"buttons" : [ "-", "-", "-", "-", "-", "-", "-", "-" ]
 				}
 
 			}
@@ -310,17 +381,66 @@
 				"type" : "iLaX"
 			}
 , 			{
-				"name" : "feedback_integrator_synthesis_3CH.maxpat",
+				"name" : "bell-params.maxpat",
 				"bootpath" : "~/dev/personal/max9/Projects/Atelier/feedback_integrator_synthesis",
 				"patcherrelativepath" : "./feedback_integrator_synthesis",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
-				"name" : "feedback_integrator_synthesis_engine_3ch.gendsp",
-				"bootpath" : "~/dev/personal/max9/Library/gen",
-				"patcherrelativepath" : "../../Library/gen",
+				"name" : "biquad.bell.gendsp",
+				"bootpath" : "~/dev/personal/max9/Projects/Atelier/feedback_integrator_synthesis",
+				"patcherrelativepath" : "./feedback_integrator_synthesis",
 				"type" : "gDSP",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "biquad.low-shelf.gendsp",
+				"bootpath" : "~/dev/personal/max9/Projects/Atelier/feedback_integrator_synthesis",
+				"patcherrelativepath" : "./feedback_integrator_synthesis",
+				"type" : "gDSP",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "dial-matrix.js",
+				"bootpath" : "~/dev/personal/max9/Projects/Atelier/ui",
+				"patcherrelativepath" : "./ui",
+				"type" : "TEXT",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "dial-single.js",
+				"bootpath" : "~/dev/personal/max9/Projects/Atelier/ui",
+				"patcherrelativepath" : "./ui",
+				"type" : "TEXT",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "equalizer.gendsp",
+				"bootpath" : "~/dev/personal/max9/Projects/Atelier/feedback_integrator_synthesis",
+				"patcherrelativepath" : "./feedback_integrator_synthesis",
+				"type" : "gDSP",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "feedback_integrator_network_3CH.maxpat",
+				"bootpath" : "~/dev/personal/max9/Projects/Atelier/feedback_integrator_synthesis",
+				"patcherrelativepath" : "./feedback_integrator_synthesis",
+				"type" : "JSON",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "feedback_integrator_network_engine_3ch.gendsp",
+				"bootpath" : "~/dev/personal/max9/Projects/Atelier/feedback_integrator_synthesis",
+				"patcherrelativepath" : "./feedback_integrator_synthesis",
+				"type" : "gDSP",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "function-to-controls.js",
+				"bootpath" : "~/dev/personal/max9/Projects/Atelier/code",
+				"patcherrelativepath" : "./code",
+				"type" : "TEXT",
 				"implicit" : 1
 			}
 , 			{
@@ -331,7 +451,84 @@
 				"implicit" : 1
 			}
 , 			{
+				"name" : "go.biquad.ap.gendsp",
+				"bootpath" : "~/Documents/Max 9/Packages/GeneratingSoundAndOrganizingTime/patchers",
+				"patcherrelativepath" : "../../../../../Documents/Max 9/Packages/GeneratingSoundAndOrganizingTime/patchers",
+				"type" : "gDSP",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "go.biquad.bp.gendsp",
+				"bootpath" : "~/Documents/Max 9/Packages/GeneratingSoundAndOrganizingTime/patchers",
+				"patcherrelativepath" : "../../../../../Documents/Max 9/Packages/GeneratingSoundAndOrganizingTime/patchers",
+				"type" : "gDSP",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "go.biquad.gendsp",
+				"bootpath" : "~/Documents/Max 9/Packages/GeneratingSoundAndOrganizingTime/patchers",
+				"patcherrelativepath" : "../../../../../Documents/Max 9/Packages/GeneratingSoundAndOrganizingTime/patchers",
+				"type" : "gDSP",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "go.biquad.hs.gendsp",
+				"bootpath" : "~/Documents/Max 9/Packages/GeneratingSoundAndOrganizingTime/patchers",
+				"patcherrelativepath" : "../../../../../Documents/Max 9/Packages/GeneratingSoundAndOrganizingTime/patchers",
+				"type" : "gDSP",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "go.biquad.lp.gendsp",
+				"bootpath" : "~/Documents/Max 9/Packages/GeneratingSoundAndOrganizingTime/patchers",
+				"patcherrelativepath" : "../../../../../Documents/Max 9/Packages/GeneratingSoundAndOrganizingTime/patchers",
+				"type" : "gDSP",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "go.biquad.ls.gendsp",
+				"bootpath" : "~/Documents/Max 9/Packages/GeneratingSoundAndOrganizingTime/patchers",
+				"patcherrelativepath" : "../../../../../Documents/Max 9/Packages/GeneratingSoundAndOrganizingTime/patchers",
+				"type" : "gDSP",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "go.line.ms.gendsp",
+				"bootpath" : "~/Documents/Max 9/Packages/GeneratingSoundAndOrganizingTime/patchers",
+				"patcherrelativepath" : "../../../../../Documents/Max 9/Packages/GeneratingSoundAndOrganizingTime/patchers",
+				"type" : "gDSP",
+				"implicit" : 1
+			}
+, 			{
 				"name" : "joystick-move-in-2d-space.js",
+				"bootpath" : "~/dev/personal/max9/Projects/Atelier/code",
+				"patcherrelativepath" : "./code",
+				"type" : "TEXT",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "joystick-travel.maxpat",
+				"bootpath" : "~/dev/personal/max9/Projects/Atelier/gamepad",
+				"patcherrelativepath" : "./gamepad",
+				"type" : "JSON",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "leaky-integrator.gendsp",
+				"bootpath" : "~/dev/personal/max9/Projects/Atelier/feedback_integrator_synthesis",
+				"patcherrelativepath" : "./feedback_integrator_synthesis",
+				"type" : "gDSP",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "low-shelf-params.maxpat",
+				"bootpath" : "~/dev/personal/max9/Projects/Atelier/feedback_integrator_synthesis",
+				"patcherrelativepath" : "./feedback_integrator_synthesis",
+				"type" : "JSON",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "xy_projection.js",
 				"bootpath" : "~/dev/personal/max9/Projects/Atelier/code",
 				"patcherrelativepath" : "./code",
 				"type" : "TEXT",

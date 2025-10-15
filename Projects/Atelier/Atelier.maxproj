@@ -2,7 +2,7 @@
 	"name" : "Atelier",
 	"version" : 1,
 	"creationdate" : 3842600401,
-	"modificationdate" : 3843157067,
+	"modificationdate" : 3843396721,
 	"viewrect" : [ 1005.0, 330.0, 370.0, 583.0 ],
 	"autoorganize" : 0,
 	"hideprojectwindow" : 0,
@@ -16,7 +16,17 @@
 				"toplevel" : 1
 			}
 ,
-			"feedback_integrator_synthesis_3CH.maxpat" : 			{
+			"bell-params.maxpat" : 			{
+				"kind" : "patcher",
+				"local" : 1
+			}
+,
+			"feedback_integrator_network_3CH.maxpat" : 			{
+				"kind" : "patcher",
+				"local" : 1
+			}
+,
+			"low-shelf-params.maxpat" : 			{
 				"kind" : "patcher",
 				"local" : 1
 			}
@@ -40,11 +50,51 @@
 				"kind" : "patcher",
 				"local" : 1
 			}
+,
+			"joystick-travel.maxpat" : 			{
+				"kind" : "patcher",
+				"local" : 1
+			}
 
 		}
 ,
 		"code" : 		{
+			"biquad.bell.gendsp" : 			{
+				"kind" : "gendsp",
+				"local" : 1
+			}
+,
+			"biquad.low-shelf.gendsp" : 			{
+				"kind" : "gendsp",
+				"local" : 1
+			}
+,
+			"dial-matrix.js" : 			{
+				"kind" : "javascript",
+				"local" : 1
+			}
+,
+			"equalizer.gendsp" : 			{
+				"kind" : "gendsp",
+				"local" : 1
+			}
+,
+			"feedback_integrator_network_engine_3ch.gendsp" : 			{
+				"kind" : "gendsp",
+				"local" : 1
+			}
+,
 			"joystick-move-in-2d-space.js" : 			{
+				"kind" : "javascript",
+				"local" : 1
+			}
+,
+			"leaky-integrator.gendsp" : 			{
+				"kind" : "gendsp",
+				"local" : 1
+			}
+,
+			"xy_projection.js" : 			{
 				"kind" : "javascript",
 				"local" : 1
 			}
@@ -64,12 +114,22 @@
 				"local" : 1
 			}
 ,
-			"leaky-integrator.gendsp" : 			{
-				"kind" : "gendsp",
+			"dial-single.js" : 			{
+				"kind" : "javascript",
 				"local" : 1,
 				"singleton" : 				{
-					"bootpath" : "~/dev/personal/max9/Projects/Atelier/feedback_integrator_synthesis",
-					"projectrelativepath" : "./feedback_integrator_synthesis"
+					"bootpath" : "~/dev/personal/max9/Projects/Atelier/ui",
+					"projectrelativepath" : "./ui"
+				}
+
+			}
+,
+			"leak-level-selector.js" : 			{
+				"kind" : "javascript",
+				"local" : 1,
+				"singleton" : 				{
+					"bootpath" : "~/dev/personal/max9/Projects/Atelier/feedback_integrator_synthesis/ui",
+					"projectrelativepath" : "./feedback_integrator_synthesis/ui"
 				}
 
 			}

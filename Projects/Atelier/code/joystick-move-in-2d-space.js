@@ -1,39 +1,57 @@
 inlets = 1;
-outlets = 1;
+outlets = 2;
 autowatch = 1;
 
-let xpos = 0.5;
-let ypos = 0.5;
+let x_phase;
+let y_phase;
 
-let xdir = 0;
-let ydir = 0;
-
-let t = new Task(onTask, this);
-t.interval = 30;
-t.repeat();
-
-function axis(x, y) {
-    xdir = sigmoid(x, 0.8);
-    ydir = sigmoid(y, 0.8);
+function reset() {
+    x_phase = 0.75;
+    y_phase = 0;
+    outlet(0, x_phase, y_phase);
 }
+reset();
 
-function move() {
-    xpos += xdir;
-    ypos += ydir;
-    xpos = Math.max(0, Math.min(1, xpos));
-    ypos = Math.max(0, Math.min(1, ypos));
-}
+let x_direction = 0;
+let y_direction = 0;
 
 function sigmoid(x, k) {
     return (x - k * x) / (k - 2 * k * Math.abs(x) + 1);
 }
 
-function onTask() {
-    move();
-    outlet(0, xpos, 1 - ypos);
+function smooth_step(x) {
+    let t = Math.abs(x);
+    t = t * t * (3 - 2 * t);
+    return Math.sign(x) * t;
 }
 
-function reset() {
-    xpos = 0.5;
-    ypos = 0.5;
+function position(x, y) {
+    // x_direction = sigmoid(x, 0.1);
+    // y_direction = sigmoid(y, 0.1);
+    x_direction = smooth_step(x);
+    y_direction = smooth_step(y);
+    outlet(1, x_direction, y_direction);
 }
+
+function move() {
+    x_phase += x_direction * 0.1;
+    y_phase += y_direction * 0.1;
+}
+
+let t = new Task(update_position, this);
+t.interval = 30;
+t.repeat();
+
+function update_position() {
+    let prev_x = x_phase;
+    let prev_y = y_phase;
+
+    move();
+
+    if (x_phase == prev_x && y_phase == prev_y) {
+        return;
+    }
+
+    outlet(0, x_phase, y_phase);
+}
+
