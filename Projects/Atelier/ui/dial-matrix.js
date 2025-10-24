@@ -60,6 +60,7 @@ function draw_value(box_width, box_height) {
             radius = size / 2;
 
             mgraphics.ellipse(center_x - radius, center_y - radius, size, size);
+            mgraphics.set_line_width(3);
             mgraphics.stroke();
         }
     }

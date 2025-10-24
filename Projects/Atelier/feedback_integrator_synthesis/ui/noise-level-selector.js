@@ -11,12 +11,12 @@ let fg_color = [1, 1, 1, 1];
 let num_channels = 3;
 
 let levels = [
-    { symbol: '𐂲', value: 1 },
-    { symbol: '𐂁', value: 1 / 8 },
-    { symbol: '𐂈', value: 1 / (8 * 4) },
-    { symbol: '𐂂', value: 1 / (8 * 8) },
-    { symbol: '𐂠', value: 1 / (8 * 16) },
-    { symbol: '𐃆', value: 1 / (8 * 32) },
+    { symbol: '𐃇', value: -96 },
+    { symbol: '𐂳', value: -12 },
+    { symbol: '𐂐', value: 0 },
+    { symbol: '𐂷', value: 12 },
+    { symbol: '𐂫', value: 36 },
+    { symbol: '𐃖', value: 60 },
 ];
 let selected_level = { row: 0, column: 0 };
 let active_levels;

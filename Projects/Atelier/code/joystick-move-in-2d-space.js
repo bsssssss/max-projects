@@ -4,16 +4,23 @@ autowatch = 1;
 
 let x_phase;
 let y_phase;
+let x_direction = 0;
+let y_direction = 0;
+
+declareattribute('base',{ setter: 'set_base', default: 0.75, type: 'float' });
+
+function set_base(v) {
+    base = v;
+}
 
 function reset() {
+    x_direction = 0;
+    y_direction = 0;
     x_phase = 0.75;
     y_phase = 0;
     outlet(0, x_phase, y_phase);
 }
 reset();
-
-let x_direction = 0;
-let y_direction = 0;
 
 function sigmoid(x, k) {
     return (x - k * x) / (k - 2 * k * Math.abs(x) + 1);
