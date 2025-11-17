@@ -1,0 +1,6 @@
+{
+  "workspace.library": [
+    "/Applications/Modalys/Components/Max/sdk8.2/modalys/misc",
+    "./modalys/annotations"
+  ],
+}

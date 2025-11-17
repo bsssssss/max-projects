@@ -1,0 +1,190 @@
+---@meta modalys
+
+-- Type definitions for IRCAM Modalys lua API
+
+---------------------------------------------------------------------------------
+-- OBJECTS
+---------------------------------------------------------------------------------
+
+---@alias ModalysObjectKind
+---| "harmonic-oscillator"
+---| "mono-two-mass"
+---| "bi-two-mass"
+---
+---| "mono-string"
+---| "bi-string"
+---
+---| "open-open-tube"
+---| "closed-open-tube"
+---| "closed-closed-tube"
+---| "jet"
+---
+---| "circ-membrane"
+---| "rect-membrane"
+---
+---| "rect-plate"
+---| "clamped-circ-plate"
+---| "free-circ-plate"
+---| "rect-free-bar"
+---
+---| "cello-bridge"
+---| "violin-bridge"
+---
+---| "single-point"
+---| "multiple-points"
+---| "radiator"
+
+---@class ModalysObjectParams
+---
+--- Kind of object. Required
+---@field kind ModalysObjectKind
+---
+--- Name of the object for future reference.
+---@field name? string
+---
+--- The mass of the small mass in kg.
+---
+--- Used by:
+---     - `harmonic-oscillator`
+---@field mass? number
+---
+--- The stiffness of the spring in the normal direction.
+---
+--- Used by:
+---     - `harmonic-oscillator`
+---     - `mono-two-mass`
+---     - `bi-two-mass`
+---@field stiffness? number
+---
+--- Frequency loss.
+---
+--- Used by:
+---     - `harmonic-oscillator`
+---     - `mono-two-mass`
+---     - `mono-string`
+---     - `bi-string`
+---@field freqloss? number
+---
+--- Constant loss.
+---
+--- Used by:
+---     - `harmonic-oscillator`
+---     - `mono-two-mass`
+---     - `mono-string`
+---     - `bi-string`
+---@field constloss? number The usual constant loss parameter.
+---
+--- The mass of the small mass in kg.
+---
+--- Used by:
+---     - `mono-two-mass`
+---     - `bi-two-mass`
+---@field smallmass? number
+---
+--- The mass of the large mass in kg.
+---
+--- Used by:
+---     - `mono-two-mass`
+---     - `bi-two-mass`
+---@field largemass? number
+---
+--- The stiffness of the spring in the 'trans0 (horizontal) direction.
+---
+--- Used by:
+---     - `bi-two-mass`
+---@field stiffness0? number
+---
+--- The stiffness of the spring in the 'trans1 (vertical) direction.
+---
+--- Used by:
+---     - `bi-two-mass`
+---@field stiffness1? number
+---
+--- The usual frequency loss parameter, 
+--- but this loss only affects the trans0 (horizontal) direction of vibration.
+---
+--- Used by:
+---     - `bi-two-mass`
+---@field freqloss0? number
+---
+--- The usual frequency loss parameter,
+--- but this loss only affects the trans1 (vertical) direction of vibration.
+---
+--- Used by:
+---     - `bi-two-mass`
+---@field freqloss1? number
+---
+--- The usual constant loss parameter,
+--- but this loss only affects the trans0 (horizontal) direction of vibration.
+---
+--- Used by:
+---     - `bi-two-mass`
+---@field constloss0? number
+---
+--- The usual constant loss parameter,
+--- but this loss only affects the trans1 (vertical) direction of vibration.
+---
+--- Used by:
+---     - `bi-two-mass`
+---@field constloss1? number
+---
+--- This value determines the number of modes of vibration calculated in the
+--- simulation of the object. As the number of modes is increased, higher 
+--- partials are added to the resultant sound. Thus if ten modes are used, 
+--- the lowest ten frequencies produced by the vibration of the object are 
+--- computed. Maximum detail is obtained when the number of modes is high 
+--- enough so that all frequencies below the Nyquist frequency are accounted
+--- for. Most objects will have have a user-definable number of modes, but some
+--- objects (such as the bi-two-mass) have a fixed number of modes, in which 
+--- case this option is not settable.
+---
+--- Used by: 
+---     - `mono-string`
+---     - `bi-string`
+---     - `open-open-tube`
+---@field modes? integer
+---
+--- Length in meters.
+---
+--- Used by:
+---     - `mono-string`
+---     - `bi-string`
+---     - `open-open-tube`
+---@field length? number
+---
+--- Tension in Newtons.
+---
+--- Used by:
+---     - `mono-string`
+---     - `bi-string`
+---@field tension? number
+---
+--- Density in kg/m3. See chart of material properties for appropriate values.
+---
+--- Used by:
+---     - `mono-string`
+---     - `bi-string`
+---@field density? number
+---
+--- Radius in meters.
+---
+--- Used by:
+---     - `mono-string`
+---     - `bi-string`
+---@field radius? number
+---
+--- Young's modulus, in N/m2. See chart of material properties for appropriate values.
+---
+--- Used by:
+---     - `mono-string`
+---     - `bi-string`
+---@field young? number
+
+---@class modalys
+local modalys = {}
+
+---@param params ModalysObjectParams
+---@return any
+function modalys.create_object(params) end
+create_object = modalys.create_object
+make_object = modalys.create_object
