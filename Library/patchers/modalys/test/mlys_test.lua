@@ -2,7 +2,9 @@ require("tools")
 require("materials")
 
 function initialize()
-	local drum = make_object({
+	local string = make_object({
+		kind = 'bi-string',
+
 	})
 end
 
