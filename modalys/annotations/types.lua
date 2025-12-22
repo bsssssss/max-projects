@@ -1,6 +1,20 @@
 ---@meta modalys
-
 -- Type definitions for IRCAM Modalys lua API
+
+---------------------------------------------------------------------------------
+-- GENERAL
+---------------------------------------------------------------------------------
+
+---@class modalys
+local modalys = {}
+
+---@class ModalysObject
+---@class ModalysAccess
+---@class ModalysConnection
+---@class ModalysController
+
+---@class ModalysPointInput
+---@class ModalysPointOutput
 
 ---------------------------------------------------------------------------------
 -- OBJECTS
@@ -92,41 +106,41 @@
 ---
 --- Used by:
 ---     - `bi-two-mass`
----@field stiffness0? number
+---@field stiffness1? number
 ---
 --- The stiffness of the spring in the 'trans1 (vertical) direction.
 ---
 --- Used by:
 ---     - `bi-two-mass`
----@field stiffness1? number
+---@field stiffness2? number
 ---
 --- The usual frequency loss parameter, 
 --- but this loss only affects the trans0 (horizontal) direction of vibration.
 ---
 --- Used by:
 ---     - `bi-two-mass`
----@field freqloss0? number
+---@field freqloss1? number
 ---
 --- The usual frequency loss parameter,
 --- but this loss only affects the trans1 (vertical) direction of vibration.
 ---
 --- Used by:
 ---     - `bi-two-mass`
----@field freqloss1? number
+---@field freqloss2? number
 ---
 --- The usual constant loss parameter,
 --- but this loss only affects the trans0 (horizontal) direction of vibration.
 ---
 --- Used by:
 ---     - `bi-two-mass`
----@field constloss0? number
+---@field constloss1? number
 ---
 --- The usual constant loss parameter,
 --- but this loss only affects the trans1 (vertical) direction of vibration.
 ---
 --- Used by:
 ---     - `bi-two-mass`
----@field constloss1? number
+---@field constloss2? number
 ---
 --- This value determines the number of modes of vibration calculated in the
 --- simulation of the object. As the number of modes is increased, higher 
@@ -180,11 +194,77 @@
 ---     - `bi-string`
 ---@field young? number
 
----@class modalys
-local modalys = {}
-
 ---@param params ModalysObjectParams
----@return any
+---@return ModalysObject
 function modalys.create_object(params) end
+modalys.make_object = modalys.create_object
 create_object = modalys.create_object
 make_object = modalys.create_object
+
+---------------------------------------------------------------------------------
+-- POINT INPUTS
+---------------------------------------------------------------------------------
+
+---@class ModalysPointInputParams
+---@field name? string
+---@field gain? number
+--- The input channel (1 based)
+---@field channel? integer
+
+---@param p ModalysPointInputParams
+---@return ModalysPointInput
+function modalys.create_point_input(p) end
+modalys.create_point_input = modalys.create_point_input
+create_point_input = modalys.create_point_input
+make_point_input = modalys.create_point_input
+
+---------------------------------------------------------------------------------
+-- POINT OUTPUTS
+---------------------------------------------------------------------------------
+
+---@class ModalysPointOutputParams
+---@field where ModalysObject | ModalysAccess | ModalysController
+---@field name? string
+---@field gain? number
+--- The output channel (1 based)
+---@field channel? integer
+---@field modes? nil | integer | {}
+
+---@param p ModalysPointOutputParams
+---@return ModalysPointOutput
+function modalys.create_point_output(p) end
+modalys.make_point_output = modalys.create_point_output
+create_point_output = modalys.create_point_output
+make_point_output = modalys.create_point_output
+
+---------------------------------------------------------------------------------
+-- ACCESSES
+---------------------------------------------------------------------------------
+
+---@class ModalysAccessParams
+---@field where ModalysObject
+---@field name? string
+---@field kind string | nil
+
+---@param p ModalysAccessParams
+---@return ModalysAccess
+function modalys.create_access(p) end
+modalys.make_access = modalys.create_access
+create_access = modalys.create_access
+make_access = modalys.create_access
+
+---------------------------------------------------------------------------------
+-- CONNECTIONS
+---------------------------------------------------------------------------------
+
+---@class ModalysConnectionParams
+---@field where ModalysAccess
+---@field kind string
+---@field name string
+
+---@param p ModalysConnectionParams
+---@return ModalysConnection
+function modalys.create_connection(p) end
+modalys.make_connection = modalys.create_connection
+create_connection = modalys.create_connection
+make_connection = modalys.create_connection

@@ -1,12 +1,7 @@
 require("tools")
 require("materials")
 
-function initialize()
-	local string = make_object({
-		kind = 'bi-string',
-
-	})
-end
+function initialize() end
 
 function update()
 	-- This function (do not change its name!) is run according to the *update* parameter (0=every sample)
