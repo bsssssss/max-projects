@@ -1,3 +1,6 @@
 [submodule "Library/gen/filters/ess"]
 	path = Library/gen/filters/ess
 	url = https://github.com/ess-m/gen-filters.git
+[submodule "Projects/bss-os"]
+	path = Projects/bss-os
+	url = https://github.com/bsssssss/bss-os_m.git
