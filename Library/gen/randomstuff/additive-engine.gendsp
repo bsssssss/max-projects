@@ -1,0 +1,79 @@
+{
+    "patcher": {
+        "fileversion": 1,
+        "appversion": {
+            "major": 9,
+            "minor": 1,
+            "revision": 2,
+            "architecture": "x64",
+            "modernui": 1
+        },
+        "classnamespace": "dsp.gen",
+        "rect": [ 780.0, 100.0, 914.0, 983.0 ],
+        "gridsnaponopen": 2,
+        "style": "monospace",
+        "subpatcher_template": "borders_gridlock_monospace",
+        "integercoordinates": 1,
+        "boxes": [
+            {
+                "box": {
+                    "code": "\r\nsigmoid(x, k) {\r\n    return (x - (k * x)) / (k - (2 * k * abs(x)) + 1);\r\n}\r\n\r\n// --- \r\n\r\nParam freq_curve(0.5, min=-1., max=1.), freq_width(10.),\r\n      amp_curve(0.5, min=-1., max=1.);\r\n\r\nData freqs(8),\r\n     amps(8);\r\n     \r\nnum_voices = 8;\r\n\r\n// --- FREQUENCIES ---\r\n\r\nbase_freq = in1;\r\nfor (i = 0; i < num_voices; i += 1) {\r\n    _i = i / num_voices;\r\n    _i = sigmoid(_i, freq_curve);\r\n    curr_freq = base_freq * ((_i * freq_width) + 1);\r\n    poke(freqs, curr_freq, i);\r\n}\r\n\r\nf0 = peek(freqs, 0); \r\nf1 = peek(freqs, 1);\r\nf2 = peek(freqs, 2); \r\nf3 = peek(freqs, 3);\r\nf4 = peek(freqs, 4); \r\nf5 = peek(freqs, 5);\r\nf6 = peek(freqs, 6); \r\nf7 = peek(freqs, 7);\r\n\r\n// --- AMPLITUDES ---\r\n\r\nfor (i = 0; i < num_voices; i += 1) {\r\n    _i = i / num_voices;\r\n    _i = sigmoid(_i, amp_curve);\r\n    curr_amp = 1 - _i;\r\n    poke(amps, curr_amp, i);\r\n}\r\n\r\na0 = peek(amps, 0); \r\na1 = peek(amps, 1);\r\na2 = peek(amps, 2); \r\na3 = peek(amps, 3);\r\na4 = peek(amps, 4); \r\na5 = peek(amps, 5);\r\na6 = peek(amps, 6); \r\na7 = peek(amps, 7);\r\n\r\n// --- OSCILLATORS ---\r\n\r\nosc0 = cycle(f0) * a0; \r\nosc1 = cycle(f1) * a1;\r\nosc2 = cycle(f2) * a2; \r\nosc3 = cycle(f3) * a3;\r\nosc4 = cycle(f4) * a4; \r\nosc5 = cycle(f5) * a5;\r\nosc6 = cycle(f6) * a6; \r\nosc7 = cycle(f7) * a7;\r\n\r\nosc_sum = osc0 +\r\n          osc1 + \r\n          osc2 + \r\n          osc3 +\r\n          osc4 +\r\n          osc5 +\r\n          osc6 +\r\n          osc7\r\n;\r\n\r\n// --- OUTPUT ---\r\n\r\nout1 = osc_sum / 8;",
+                    "fontface": 0,
+                    "fontname": "<Monospaced>",
+                    "fontsize": 16.0,
+                    "id": "obj-5",
+                    "maxclass": "codebox",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 90.0, 105.0, 750.0, 765.0 ]
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-1",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 90.0, 75.0, 37.0, 25.0 ],
+                    "text": "in 1"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-4",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 90.0, 885.0, 44.0, 25.0 ],
+                    "text": "out 1"
+                }
+            }
+        ],
+        "lines": [
+            {
+                "patchline": {
+                    "destination": [ "obj-5", 0 ],
+                    "source": [ "obj-1", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-4", 0 ],
+                    "source": [ "obj-5", 0 ]
+                }
+            }
+        ],
+        "styles": [
+            {
+                "name": "monospace",
+                "default": {
+                    "fontname": [ "CommitMono" ]
+                },
+                "parentstyle": "",
+                "multi": 0
+            }
+        ]
+    }
+}

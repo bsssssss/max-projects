@@ -1,0 +1,97 @@
+{
+    "patcher": {
+        "fileversion": 1,
+        "appversion": {
+            "major": 9,
+            "minor": 1,
+            "revision": 2,
+            "architecture": "x64",
+            "modernui": 1
+        },
+        "classnamespace": "dsp.gen",
+        "rect": [ 445.0, 184.0, 930.0, 753.0 ],
+        "gridsnaponopen": 2,
+        "style": "monospace",
+        "subpatcher_template": "borders_gridlock_monospace",
+        "integercoordinates": 1,
+        "boxes": [
+            {
+                "box": {
+                    "code": "\r\nwt(phasor, pos, n, len, buf) \r\n{\r\n    start = wrap(pos, 0, n) * len;\r\n    end   = start + len;\r\n    \r\n    wave = wave(buf,\r\n                phasor,\r\n                start,\r\n                end,\r\n                interp = \"spline6\");\r\n\r\n    return wave;\r\n}\r\n\r\n/**********************************************************************/\r\n\r\nBuffer tables_buf(); // The wavetable buffer\r\nParam N(64, min=1);  // Number of tables in buffer\r\n\r\ntable_len = dim(tables_buf) / N; // Length of a single table in samples\r\n\r\npos       = in2 * N;    // Pos scaled to number of wt\r\npos_int   = trunc(pos); // Integer part of position\r\npos_fract = fract(pos); // Fractional part\r\n\r\nphasor = in1; // The driving phasor\r\nw1     = wt(phasor, pos_int, N, table_len, tables_buf);\r\nw2     = wt(phasor, pos_int + 1, N, table_len, tables_buf);\r\nosc    = mix(w1, w2, pos_fract);\r\n\r\nout1 = osc;",
+                    "fontface": 0,
+                    "fontname": "<Monospaced>",
+                    "fontsize": 14.0,
+                    "id": "obj-5",
+                    "maxclass": "codebox",
+                    "numinlets": 2,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 30.0, 60.0, 840.0, 615.0 ]
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-1",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 30.0, 30.0, 88.0, 25.0 ],
+                    "text": "in 1 phasor"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-2",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 631.0, 30.0, 232.0, 25.0 ],
+                    "text": "in 2 \"wave (0-1)\" @min 0 @max 1"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-4",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 30.0, 690.0, 44.0, 25.0 ],
+                    "text": "out 1"
+                }
+            }
+        ],
+        "lines": [
+            {
+                "patchline": {
+                    "destination": [ "obj-5", 0 ],
+                    "source": [ "obj-1", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-5", 1 ],
+                    "midpoints": [ 640.5, 57.0, 860.5, 57.0 ],
+                    "source": [ "obj-2", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-4", 0 ],
+                    "source": [ "obj-5", 0 ]
+                }
+            }
+        ],
+        "styles": [
+            {
+                "name": "monospace",
+                "default": {
+                    "fontname": [ "CommitMono" ]
+                },
+                "parentstyle": "",
+                "multi": 0
+            }
+        ]
+    }
+}

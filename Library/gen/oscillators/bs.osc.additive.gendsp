@@ -1,0 +1,96 @@
+{
+    "patcher": {
+        "fileversion": 1,
+        "appversion": {
+            "major": 9,
+            "minor": 1,
+            "revision": 2,
+            "architecture": "x64",
+            "modernui": 1
+        },
+        "classnamespace": "dsp.gen",
+        "rect": [ 389.0, 100.0, 1305.0, 983.0 ],
+        "gridsnaponopen": 2,
+        "style": "monospace",
+        "subpatcher_template": "borders_gridlock_monospace",
+        "integercoordinates": 1,
+        "boxes": [
+            {
+                "box": {
+                    "id": "obj-6",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 963.0, 30.0, 296.0, 25.0 ],
+                    "text": "in 2 brightness @default 1 @min 0 @max 1"
+                }
+            },
+            {
+                "box": {
+                    "code": "/* Additive oscillator with variable number of partials */\r\n\r\n/*** HELPER FUNCTIONS *******************************************************/\r\n\r\n/* Compute sinusoid function on the running phase for a single partial */\r\np_sin(phase, index, offset = 0) {\r\n    return sin((TWOPI * index * phase) + offset);\r\n}\r\n\r\np_rolloff(p_index) {\r\n    return 1 / (p_index);\r\n}\r\n\r\np_blend(blend, p_index, partials) {\r\n    start = (p_index - 1) / partials;\r\n    range = 1 / partials;\r\n    return clip((blend - start) / range, 0, 1);\r\n}\r\n\r\n/* Compute amplitude for a single partial */\r\np_amp(blend, p_index, partials) {\r\n    blend   = p_blend(blend, p_index, partials);\r\n    rolloff = p_rolloff(p_index);\r\n    return blend * rolloff;\r\n}\r\n\r\n/*** PARAMETERS *************************************************************/\r\n\r\nParam partials(32, min = 1, max = 512);    // total number of partials\r\n\r\nfrequency = in1;                           // base frequency\r\nblend = scale(in2, 0, 1, 1 / partials, 1); // blend audible partials\r\n\r\n/*** COMPUTE OSCILLATOR BANK ************************************************/\r\n\r\nphase = accum(frequency / samplerate); // the running phase\r\nsum = 0;\r\n\r\nfor (i = 0; i < partials; i += 1) {\r\n    if (frequency * (i + 1) >= samplerate / 2) {\r\n        break;\r\n    }\r\n    osc = p_sin(phase, i + 1, 0);\r\n    amp = p_amp(blend, i + 1, partials);\r\n    sum += osc * amp;\r\n}\r\n\r\n/*** OUTPUT *****************************************************************/\r\n\r\nout1 = sum * 0.5;",
+                    "fontface": 0,
+                    "fontname": "<Monospaced>",
+                    "fontsize": 16.0,
+                    "id": "obj-5",
+                    "maxclass": "codebox",
+                    "numinlets": 2,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 30.0, 60.0, 952.0, 840.0 ]
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-1",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 30.0, 30.0, 109.0, 25.0 ],
+                    "text": "in 1 frequency"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-4",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 30.0, 915.0, 44.0, 25.0 ],
+                    "text": "out 1"
+                }
+            }
+        ],
+        "lines": [
+            {
+                "patchline": {
+                    "destination": [ "obj-5", 0 ],
+                    "source": [ "obj-1", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-4", 0 ],
+                    "source": [ "obj-5", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-5", 1 ],
+                    "source": [ "obj-6", 0 ]
+                }
+            }
+        ],
+        "styles": [
+            {
+                "name": "monospace",
+                "default": {
+                    "fontname": [ "CommitMono" ]
+                },
+                "parentstyle": "",
+                "multi": 0
+            }
+        ]
+    }
+}

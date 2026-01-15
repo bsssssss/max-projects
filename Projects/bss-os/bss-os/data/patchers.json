@@ -1,12 +1,11 @@
 {
-	"sequencers": {
-		"default": "seq.default",
-		"minseq": "seq.minseq-v2",
-		"bjorklund": "seq.bjorklund"
-	},
-	"instruments": {
-		"default": "snd.default",
-		"surge-vst": "snd.surge-vst",
-		"midi-out": "snd.midi-out"
-	}
+    "sequencers": {
+        "default": "seq.default",
+        "test": "seq.test4"
+    },
+    "sounds": {
+        "default": "snd.default",
+        "surge-vst": "snd.surge-vst",
+        "midi-out": "snd.midi-out"
+    }
 }
